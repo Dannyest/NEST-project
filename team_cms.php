@@ -9,8 +9,8 @@
     while($showpost = @mysql_fetch_array($selectPosts))
     {  
 
-    <?php echo $showpost['person_name'];?> - <a href="index.php?id=10&ud_id=<?php echo $showpost['person_id'];?>">Edit</a> 
-    - <a href="index.php?id=10&ud_id=<?php echo $showpost['person_id'];?>">Remove</a> <br /><br />
+    <?php echo $showpost['person_name'];?> - <a href="index.php?id=10&action=edit&ud_id=<?php echo $showpost['person_id'];?>">Edit</a> 
+    - <a href="index.php?id=10&action=remove&ud_id=<?php echo $showpost['person_id'];?>">Remove</a> <br /><br />
     <?php }?>
     <a href='index.php?id=10'>Back</a>
     <?php
@@ -28,7 +28,7 @@
 		if($data){echo "    Updated <a href='index.php?id=10'>Back</a>";}
 	}
     
-    $action = $_GET['id']; 
+    $action = $_GET['action']; 
     $ud_id = $_GET['ud_id'];
 
      if($action == "edit")
