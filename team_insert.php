@@ -29,7 +29,7 @@
 	
   if($result)
 	{
-		echo "<meta http-equiv=\"refresh\" content=\"0;URL=index.php=?id=10.php\">";
+		echo "<meta http-equiv=\"refresh\" content=\"0;URL=index.php=?id=10\">";
 	}
 
 	else 
