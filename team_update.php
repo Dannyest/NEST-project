@@ -1,4 +1,5 @@
 <?php
+  include("config.php");
   include("con_db.php");
   $name = $_POST['person_name'];
 	$desc = $_POST['person_desc'];
