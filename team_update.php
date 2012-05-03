@@ -8,7 +8,7 @@
 	$result = mysql_query($sql);
 	if ($result)
 		{
-			echo "<meta http-equiv=\"refresh\" content=\"0;URL=cms.php\">";
+			echo "<meta http-equiv=\"refresh\" content=\"0;URL=index.php=?id=10\">";
 		}
 		
 	else 
