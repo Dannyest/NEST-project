@@ -22,10 +22,11 @@
 			echo $status;
 			echo $desc;
 			echo $img;
-			echo "<a href='index.php?id=10&action=edit&ud_id=$id'>Edit</a>";
-			echo '<a href="index.php?id=10&action=insert">Insert</a>';	
+			echo "<a href='index.php?id=10&action=edit&ud_id=$id'>Edit</a>";	
 			echo '</div>';
-	  	}	    
+	  	}
+	
+	echo '<a href="index.php?id=10&action=insert">Insert</a>';
 	    
 	    if(isset($_POST['person_id']))
 	    { 
@@ -51,7 +52,6 @@
 	    $selectPost = @mysql_fetch_array(@mysql_query("SELECT * FROM team WHERE id='$ud_id'"));
 
 		     ?>
-		 	<h2> <?php echo $selectPost['person_name'];?> </h2>
 		 	<form action="index.php?id=10" method="post" name="post">
 			<p>Post Name:<br />
 			<input name="name" type="text"value="<?php echo $selectPost['person_name'];?>" size="45" />
