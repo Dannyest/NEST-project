@@ -10,7 +10,8 @@
     {  
 
     <?php echo $showpost['person_name'];?> - <a href="index.php?id=10&action=edit&ud_id=<?php echo $showpost['person_id'];?>">Edit</a> 
-    - <a href="index.php?id=10&action=remove&ud_id=<?php echo $showpost['person_id'];?>">Remove</a> <br /><br />
+    - <a href="index.php?id=10&action=remove&ud_id=<?php echo $showpost['person_id'];?>">Remove</a> <br />
+    <a href="index.php?id=10&action=remove">Remove</a><br />
     <?php }?>
     <a href='index.php?id=10'>Back</a>
     <?php
