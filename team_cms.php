@@ -29,7 +29,7 @@
 	    
 	    if(isset($_POST['person_id']))
 	    { 
-	    	$name = $_POST['person_name']; 
+	    		$name = $_POST['person_name']; 
 			$desc = $_POST['person_desc']; 
 			$status = $_POST['status'];
 			$id = $_POST['person_id']; 
@@ -46,7 +46,7 @@
 	    $ud_id = $_GET['ud_id'];
 	
 	    if($action == "edit")
-	    { 
+	    { 	    	
 	         $selectPost = @mysql_fetch_array(@mysql_query("SELECT * FROM team WHERE person_id='$ud_id'"));
 		     ?>
 		 	<h2> <?php echo $selectPost['person_name'];?> </h2>
