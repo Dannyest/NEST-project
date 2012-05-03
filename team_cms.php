@@ -22,7 +22,7 @@
 			echo $status;
 			echo $desc;
 			echo $img;
-			echo '<a href="index.php?id=10&action=edit&ud_id=$id">Edit</a>';
+			echo '<a href="index.php?id=10&action=edit&ud_id='$id'">Edit</a>';
 			echo '<a href="index.php?id=10&action=insert">Insert</a>';	
 			echo '</div>';
 	  	}	    
