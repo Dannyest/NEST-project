@@ -7,6 +7,7 @@
  	
 	$query = "SELECT * FROM team ORDER BY person_id DESC"; 
 	$queryResult = mysql_query($query);
+	$id = person_id;
 	
 	$rowCount = mysql_numrows($queryResult);
 	  
@@ -21,8 +22,8 @@
 			echo $status;
 			echo $desc;
 			echo $img;
-			//echo '<a href="index.php?id=10&action=edit&ud_id=<?php echo $showpost['person_id'];?>">Edit</a>';
-			//echo '<a href="index.php?id=10&action=insert">Insert</a>';	
+			echo '<a href="index.php?id=10&action=edit&ud_id=$id">Edit</a>';
+			echo '<a href="index.php?id=10&action=insert">Insert</a>';	
 			echo '</div>';
 	  	}	    
 	    
