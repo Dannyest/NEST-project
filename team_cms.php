@@ -47,18 +47,20 @@
 	
 	    if($action == "edit")
 	    { 	    	
-	         $selectPost = @mysql_fetch_array(@mysql_query("SELECT * FROM team WHERE person_id='$ud_id'"));
+	        $sql = "SELECT * FROM team WHERE id='ud_id'";
+		$result = mysql_query($sql);
+		$rows = mysql_fetch_array($result);
 		     ?>
 		 	<h2> <?php echo $selectPost['person_name'];?> </h2>
 		 	<form action="index.php?id=10" method="post" name="post">
 			<p>Post Name:<br />
-			<input name="name" type="text"value="<?php echo $selectPost['person_name'];?>" size="45" />
+			<input name="name" type="text"value="<?php echo $rows['person_name'];?>" size="45" />
 		  	</p>
 		   	<p>Post Status:<br />
-			<input name="status" type="text"value="<?php echo $selectPost['status'];?>" size="45" />
+			<input name="status" type="text"value="<?php echo $rows['status'];?>" size="45" />
 		  	</p>
 		  	<p>Post Content:<br />
-			<textarea name="desc" cols="40" rows="15"><?php echo $selectPost['person_desc'];?></textarea>
+			<textarea name="desc" cols="40" rows="15"><?php echo $rows['person_desc'];?></textarea>
 		    	</p>
 		    	<input name="update" type="submit" value="Update" />
 		    	</form>
