@@ -51,7 +51,37 @@
 	    	</form>
 
 
+   <?php }
+   
+   if($action == "insert")
+ { ?>
+		<form enctype="multipart/form-data" action="team_insert.php" method="POST">
+		<div class="formelement">
+		<div class="formcolumn">Name</div>
+		<div class="formcolumn"><input type="text" size="40" name="person_name" value="" /></div>
+		</div>
+	
+		<div class="formelement">
+		<div class="formcolumn">Status</div>
+		<div class="formcolumn"><input type="text" size="40" name="status" value="" /></div>
+		<div class="formelement">
+			<div class="formcolumn">Image</div>
+			<div class="formcolumn"><input name="imagefile" type="file" /></div>
+		</div>
+		</div>
+	
+	<div class="formelement">
+	<textarea cols="70" rows="20" name="person_desc" ></textarea>
+	</div>
+
+	<input type="submit" value="Submit" />
+
+		</form>
+
+
    <?php }?>
+   
+   
     
 
 
