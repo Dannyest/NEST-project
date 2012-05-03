@@ -3,18 +3,32 @@
     <?php include("cms_menu.php"); ?>
     <?php include("config.php"); ?>
     <?php include("con_db.php"); ?>
-<?php    
-    $selectPosts = @mysql_query("SELECT * FROM team ORDER BY person_id DESC");
-    
-    while($showpost = @mysql_fetch_array($selectPosts))
-    {  
 
-    <?php echo $showpost['person_name'];?> - <a href="index.php?id=10&action=edit&ud_id=<?php echo $showpost['person_id'];?>">Edit</a> 
-    - <a href="index.php?id=10&action=remove&ud_id=<?php echo $showpost['person_id'];?>">Remove</a> <br />
-    <a href="index.php?id=10&action=insert">Insert</a><br />
-    <?php }?>
-    <a href='index.php?id=10'>Back</a>
-    <?php
+
+<?php
+  $query = "SELECT * FROM team ORDER BY person_id DESC"; 
+  $queryResult = mysql_query($query);
+  
+  $rowCount = mysql_numrows($queryResult);
+  
+    for($i = 0; $i < $rowCount; $i++) 
+  	{ 
+		$name = mysql_result($queryResult, $i, "person_name"); 
+		$desc = mysql_result($queryResult, $i, "person_desc"); 
+		$img = mysql_result($queryResult, $i, "person_img"); 
+		$status = mysql_result($queryResult, $i, "status"); 
+		echo '<div>';
+		echo $name;
+		echo $status;
+		echo $desc;
+		echo $img;
+		echo '<a href="index.php?id=10&action=edit&ud_id=<?php echo $showpost['person_id'];?>">Edit</a>';
+		echo '<a href="index.php?id=10&action=insert">Insert</a>';	
+		echo '</div>';
+  	}
+  ?>
+    
+    
     if(isset($_POST['person_id']))
     { 
     	$name = $_POST['person_name']; 
