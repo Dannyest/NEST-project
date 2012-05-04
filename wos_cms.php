@@ -5,7 +5,7 @@
       include("config.php");
     	include("con_db.php");
  	
-    	$query = "SELECT * FROM gen_info WHERE site_id=2 ORDER BY article_id DESC"; 
+    	$query = "SELECT * FROM gen_info WHERE site_id=1 ORDER BY article_id DESC"; 
     	$queryResult = mysql_query($query);
 
     	$rowCount = mysql_numrows($queryResult);
@@ -59,7 +59,7 @@
 		if($action == "insert")
 		   { 
 		   ?>
-		   	<input name="site_id" type="hidden" value="2">
+		   	<input name="site_id" type="hidden" value="1">
 			<form enctype="multipart/form-data" action="gen_insert.php" method="POST">
 			<div>
 			<div>Header</div>
