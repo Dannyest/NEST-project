@@ -26,7 +26,8 @@
 				echo $e->getMessage();
 				echo "Problem loading the file";
 			}
-  }
+  		}
+	}
 	
   if($result)
 	{
