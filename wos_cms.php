@@ -78,7 +78,7 @@
 			</div>
 			<input type="submit" value="Submit" />
 			</form>	
-			<?php }?>
+			<?php }
 		
 
 		if($action == "delete")
@@ -91,6 +91,6 @@
 			{
 				echo "<meta http-equiv=\"refresh\" content=\"0;URL=index.php?id=11\">";	
 			}
-		}
+		}?>
 
 </div>
