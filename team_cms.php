@@ -22,34 +22,21 @@
 			echo $status;
 			echo $desc;
 			echo $img;
-			echo "<a href='index.php?id=10&action=edit&ud_id=$id'>Edit</a>";	
+			echo "<a href='index.php?id=10&action=edit&ud_id=$id'>Edit</a>";
+			echo "<a href='index.php?id=10&action=delete&ud_id=$id'>Delete</a>";
 			echo '</div>';
 	  	}
 	
 	echo '<a href="index.php?id=10&action=insert">Insert</a>';
 	    
-	    if(isset($_POST['person_id']))
-	    { 
-	    		$name = $_POST['person_name']; 
-			$desc = $_POST['person_desc']; 
-			$status = $_POST['status'];
-			$id = $_POST['person_id']; 
-			$img = $_POST['person_img'];
-	
-			$data = @mysql_query("UPDATE team SET person_name='$name', person_desc='$desc', status='$status' WHERE person_id='$id'") 
-			or die(@mysql_error());
-	
-			if($data){echo "    Updated <a href='index.php?id=10'>Back</a>";}	
-			
-	    }
 	    
 	    $action = $_GET['action']; 
 	    $ud_id = $_GET['ud_id'];
 	
-	    if($action == "edit")
-	    { 	    	
+		if($action == "edit")
+	  	  { 	    	
 	    
-	    $selectPost = @mysql_fetch_array(@mysql_query("SELECT * FROM team WHERE id='$ud_id'"));
+	 		   $selectPost = @mysql_fetch_array(@mysql_query("SELECT * FROM team WHERE id='$ud_id'"));
 
 		     ?>
 		     	<input name="person_id" type="hidden" value="<?php echo $selectPost['person_id'];?>">
@@ -67,12 +54,12 @@
 		    	</form>
 	
 	
-	   <?php 
-	    }
+	 	  <?php 
+		    }
 	   
-	   if($action == "insert")
-	   { 
-	   ?>
+		if($action == "insert")
+		   { 
+		   ?>
 			<form enctype="multipart/form-data" action="team_insert.php" method="POST">
 			<div>
 			<div>Name</div>
@@ -87,20 +74,23 @@
 				<div><input name="imagefile" type="file" /></div>
 			</div>
 			</div>
+			<div>
+			<textarea cols="40" rows="15" name="person_desc" ></textarea>
+			</div>
+			<input type="submit" value="Submit" />
+			</form>	
+			<?php }?>
 		
-		<div>
-		<textarea cols="40" rows="15" name="person_desc" ></textarea>
-		</div>
+
+		if($action == "delete")
+		{
+			
+			$data = @mysql_query("DELETE FROM team WHERE person_id = $ud_id") 
+			or die(@mysql_error());
 	
-		<input type="submit" value="Submit" />
-	
-			</form>
-	
-	
-	   <?php 
-	   }
-	   ?>
-	   
+			if($data){echo "<meta http-equiv=\"refresh\" content=\"0;URL=index.php?id=10\">";	
+			
+		}
    
     
 
