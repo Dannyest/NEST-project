@@ -59,6 +59,7 @@
 		if($action == "insert")
 		   { 
 		   ?>
+		   	<input name="site_id" type="hidden" value="2">
 			<form enctype="multipart/form-data" action="gen_insert.php" method="POST">
 			<div>
 			<div>Header</div>
