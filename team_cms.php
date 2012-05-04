@@ -52,15 +52,16 @@
 	    $selectPost = @mysql_fetch_array(@mysql_query("SELECT * FROM team WHERE id='$ud_id'"));
 
 		     ?>
+		     	<input name="person_id" type="hidden" value="<?php echo $selectPost['person_id'];?>">
 		 	<form action="index.php?id=10" method="post" name="post">
 			<p>Post Name:<br />
-			<input name="name" type="text"value="<?php echo $selectPost['person_name'];?>" size="45" />
+			<input name="person_name" type="text"value="<?php echo $selectPost['person_name'];?>" size="45" />
 		  	</p>
 		   	<p>Post Status:<br />
 			<input name="status" type="text"value="<?php echo $selectPost['status'];?>" size="45" />
 		  	</p>
 		  	<p>Post Content:<br />
-			<textarea name="desc" cols="40" rows="15"><?php echo $selectPost['person_desc'];?></textarea>
+			<textarea name="person_desc" cols="40" rows="15"><?php echo $selectPost['person_desc'];?></textarea>
 		    	</p>
 		    	<input name="update" type="submit" value="Update" />
 		    	</form>
@@ -73,22 +74,22 @@
 	   { 
 	   ?>
 			<form enctype="multipart/form-data" action="team_insert.php" method="POST">
-			<div class="formelement">
-			<div class="formcolumn">Name</div>
-			<div class="formcolumn"><input type="text" size="40" name="person_name" value="" /></div>
+			<div>
+			<div>Name</div>
+			<div><input type="text" size="40" name="person_name" value="" /></div>
 			</div>
 		
-			<div class="formelement">
-			<div class="formcolumn">Status</div>
-			<div class="formcolumn"><input type="text" size="40" name="status" value="" /></div>
-			<div class="formelement">
-				<div class="formcolumn">Image</div>
-				<div class="formcolumn"><input name="imagefile" type="file" /></div>
+			<div>
+			<div>Status</div>
+			<div><input type="text" size="40" name="status" value="" /></div>
+			<div>
+				<div>Image</div>
+				<div><input name="imagefile" type="file" /></div>
 			</div>
 			</div>
 		
-		<div class="formelement">
-		<textarea cols="70" rows="20" name="person_desc" ></textarea>
+		<div>
+		<textarea cols="40" rows="15" name="person_desc" ></textarea>
 		</div>
 	
 		<input type="submit" value="Submit" />
