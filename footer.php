@@ -1,5 +1,6 @@
-<html>
+
 <div id="footer">
 
+KUVAT YHTEISTYÖKAVEREISTA
+
 </div>
-</html>
