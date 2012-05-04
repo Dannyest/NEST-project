@@ -88,8 +88,10 @@
 			$data = @mysql_query("DELETE FROM team WHERE person_id = $ud_id") 
 			or die(@mysql_error());
 	
-			if($data){echo "<meta http-equiv=\"refresh\" content=\"0;URL=index.php?id=10\">";	
-			
+			if($data)
+			{
+				echo "<meta http-equiv=\"refresh\" content=\"0;URL=index.php?id=10\">";	
+			}
 		}
    
     
