@@ -5,7 +5,7 @@
 	$desc = $_POST['person_desc'];
 	$status = $_POST['status'];
 	$id = $_POST['person_id'];
-	$sql = "UPDATE team SET person_name='$name', person_desc='$desc', status='$status' WHERE id='$id'";
+	$sql = "UPDATE team SET person_name='$name', person_desc='$desc', status='$status' WHERE person_id='$id'";
 	$result = mysql_query($sql);
 	if ($result)
 		{
