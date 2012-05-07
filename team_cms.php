@@ -10,17 +10,6 @@
 
 	$rowCount = mysql_numrows($queryResult);
 	
-	function printArticleImages($articleId)
-		{
-			$SITE_ADDRESS = "";
-			$imageQuery = "SELECT person_img FROM team WHERE person_id=$query";
-			$imageQueryResult = mysql_query($imageQuery);
-			while($imageRow = mysql_fetch_array($imageQueryResult))
-			{
-				echo '<img src="' . $SITE_ADDRESS . 'imagesrc.php?img_id=' . $imageRow['person_img'] . '">';		
-			}
-		}
-
 	  
 	for($i = 0; $i < $rowCount; $i++) 
 	  	{ 
@@ -32,7 +21,6 @@
 			echo $name;
 			echo $status;
 			echo $desc;
-			echo printArticleImages($id);
 			echo "<a href='index.php?id=10&action=edit&ud_id=$id'>Edit</a>";
 			echo "<a href='index.php?id=10&action=delete&ud_id=$id'>Delete</a>";
 			echo '</div>';
@@ -82,7 +70,7 @@
 			<div><input type="text" size="40" name="status" value="" /></div>
 			<div>
 				<div>Image</div>
-				<div><input name="imagefile" type="file" /></div>
+				<div><input name="file" type="file" id="file"/></div>
 			</div>
 			</div>
 			<div>
