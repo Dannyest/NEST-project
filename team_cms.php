@@ -9,19 +9,30 @@
 	$queryResult = mysql_query($query);
 
 	$rowCount = mysql_numrows($queryResult);
+	
+	function printArticleImages($articleId)
+		{
+			$SITE_ADDRESS = "";
+			$imageQuery = "SELECT person_img FROM team WHERE person_id=$query";
+			$imageQueryResult = mysql_query($imageQuery);
+			while($imageRow = mysql_fetch_array($imageQueryResult))
+			{
+				echo '<img src="' . $SITE_ADDRESS . 'imagesrc.php?img_id=' . $imageRow['person_img'] . '">';		
+			}
+		}
+
 	  
 	for($i = 0; $i < $rowCount; $i++) 
 	  	{ 
 			$name = mysql_result($queryResult, $i, "person_name"); 
 			$desc = mysql_result($queryResult, $i, "person_desc"); 
-			$img = mysql_result($queryResult, $i, "person_img"); 
 			$status = mysql_result($queryResult, $i, "status"); 
 			$id = mysql_result($queryResult, $i, "person_id"); 
 			echo '<div>';
 			echo $name;
 			echo $status;
 			echo $desc;
-			echo $img;
+			echo printArticleImages($id);
 			echo "<a href='index.php?id=10&action=edit&ud_id=$id'>Edit</a>";
 			echo "<a href='index.php?id=10&action=delete&ud_id=$id'>Delete</a>";
 			echo '</div>';
