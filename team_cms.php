@@ -39,8 +39,8 @@
 	 		   $selectPost = @mysql_fetch_array(@mysql_query("SELECT * FROM team WHERE person_id='$ud_id'"));
 
 		     ?>
+		 	<form action="team_update.php" method="post" name="post">
 		     	<input name="person_id" type="hidden" value="<?php echo $selectPost['person_id'];?>">
-		 	<form action="index.php?id=10" method="post" name="post">
 			<p>Post Name:<br />
 			<input name="person_name" type="text"value="<?php echo $selectPost['person_name'];?>" size="45" />
 		  	</p>
