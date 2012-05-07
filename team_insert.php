@@ -5,23 +5,33 @@
 	$desc = $_POST['person_desc'];
 	$status = $_POST['status'];
 
-	  if(isset($_FILES['imagefile']))
-	{
-		
-				$imgData = addslashes(file_get_contents($_FILES['imagefile']['tmp_name']));
-				$size = getimagesize($_FILES['imagefile']['tmp_name']);
-				$imageSql = "INSERT INTO team (person_name, person_desc, status, person_img) VALUES ('$name', '$desc', '$status', '$imgData')";
-				
-
-        if(!mysql_query($imageSql))
-				{
-					echo 'Upload failed';
-				}
-				
-	}
-else   {
-      		     		$imageSql = "INSERT INTO team (person_name, person_desc, status) VALUES ('$name', '$desc', '$status')";
-
-      		}			
+	 if ((($_FILES["file"]["type"] == "image/gif")
+|| ($_FILES["file"]["type"] == "image/jpeg")
+|| ($_FILES["file"]["type"] == "image/png")
+|| ($_FILES["file"]["type"] == "image/pjpeg"))
+&& ($_FILES["file"]["size"] < 20000000))
+  {
+  if ($_FILES["file"]["error"] > 0)
+    {
+    echo "Return Code: " . $_FILES["file"]["error"] . "<br />";
+    }
+  else
+    {
+    if (file_exists("upload/" . $_FILES["file"]["name"]))
+      {
+      echo $_FILES["file"]["name"] . " already exists. ";
+      }
+    else
+      {
+      move_uploaded_file($_FILES["file"]["tmp_name"],
+      "NEST/images" . $_FILES["file"]["name"]);
+	mysql_query("INSERT INTO team (image_name) VALUES ('".$FILES['file']['name']."')");
+      }
+    }
+  }
+else
+  {
+  echo "Invalid file";
+  }
 	header("Location: index.php?id=10");
 ?>
