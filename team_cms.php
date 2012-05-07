@@ -36,7 +36,7 @@
 		if($action == "edit")
 	  	  { 	    	
 	    
-	 		   $selectPost = @mysql_fetch_array(@mysql_query("SELECT * FROM team WHERE id='$ud_id'"));
+	 		   $selectPost = @mysql_fetch_array(@mysql_query("SELECT * FROM team WHERE person_id='$ud_id'"));
 
 		     ?>
 		     	<input name="person_id" type="hidden" value="<?php echo $selectPost['person_id'];?>">
