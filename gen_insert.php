@@ -26,7 +26,7 @@
       {
       move_uploaded_file($_FILES["file"]["tmp_name"],
       "/home/user/public_html/NEST/images/" . $_FILES["file"]["name"]);
-	mysql_query("INSERT INTO team (site_id, image_name, header, content, author) VALUES ('$site_id', '$imgname', '$header', '$content', '$author')");	
+	mysql_query("INSERT INTO gen_info (site_id, image_name, header, content, author) VALUES ('$site_id', '$imgname', '$header', '$content', '$author')");	
       }
     }
   }
