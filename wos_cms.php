@@ -62,6 +62,7 @@
 		   ?>
 			<form enctype="multipart/form-data" action="gen_insert.php" method="POST">
 			<div>
+			<input name="site_id" type="hidden" value="1">
 			<div>Author</div>
 			<div><input type="text" size="40" name="author" value="" /></div>
 			</div>
