@@ -1,5 +1,7 @@
 <div id="team_cms">
     
+<div id="team_cms">
+    
  <?php 
  	include("cms_menu.php");
  	include("config.php");
@@ -89,9 +91,12 @@
 		if($action == "delete")
 		{
 
-			$del = @mysql_query("SELECT image_name FROM team WHERE person_id = $ud_id");
+			$del = "SELECT image_name FROM team WHERE person_id = $ud_id";
+			$query = mysql_query($del);
+			$result = mysql_fetch_assoc($query);
+			$img[$result];			
 
-			if(!unlink("/home/user/public_html/NEST/images/'$del'"))
+			if(!unlink("/home/user/public_html/NEST/images/$img"))
 			{
 				echo ("Error deleting file");
 			}
@@ -104,7 +109,10 @@
 				echo "<meta http-equiv=\"refresh\" content=\"0;URL=index.php?id=10\">";	
 				
 			}
-		}?>
+
+		}
+		
+?>
    	
    
     
