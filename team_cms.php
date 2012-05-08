@@ -9,32 +9,36 @@
 	$queryResult = mysql_query($query);
 
 	$rowCount = mysql_numrows($queryResult);
-	
-	  
+
+	    $action = $_GET['action']; 
+	    $ud_id = $_GET['ud_id'];
+
+
 	for($i = 0; $i < $rowCount; $i++) 
 	  	{ 
 			$name = mysql_result($queryResult, $i, "person_name"); 
 			$desc = mysql_result($queryResult, $i, "person_desc"); 
 			$status = mysql_result($queryResult, $i, "status"); 
 			$id = mysql_result($queryResult, $i, "person_id"); 
+			$img = mysql_result($queryResult, $i, "image_name");
 			echo '<div>';
 			echo $name;
 			echo $status;
 			echo $desc;
+			echo "<img src=http://bubble.ipt.oamk.fi/NEST/images/$img>";
 			echo "<a href='index.php?id=10&action=edit&ud_id=$id'>Edit</a>";
 			echo "<a href='index.php?id=10&action=delete&ud_id=$id'>Delete</a>";
 			echo '</div>';
+
+
 	  	}
-	
+
 	echo '<a href="index.php?id=10&action=insert">Insert</a>';
-	    
-	    
-	    $action = $_GET['action']; 
-	    $ud_id = $_GET['ud_id'];
-	
+
+
 		if($action == "edit")
 	  	  { 	    	
-	    
+
 	 		   $selectPost = @mysql_fetch_array(@mysql_query("SELECT * FROM team WHERE person_id='$ud_id'"));
 
 		     ?>
@@ -55,7 +59,7 @@
 	
 	 	  <?php 
 		    }
-	   
+
 		if($action == "insert")
 		   { 
 		   ?>
@@ -79,14 +83,14 @@
 			<input type="submit" value="Submit" />
 			</form>	
 			<?php }
-		
+
 
 		if($action == "delete")
 		{
-			
+
 			$data = @mysql_query("DELETE FROM team WHERE person_id = $ud_id") 
 			or die(@mysql_error());
-	
+
 			if($data)
 			{
 				echo "<meta http-equiv=\"refresh\" content=\"0;URL=index.php?id=10\">";	
