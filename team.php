@@ -13,13 +13,13 @@
   	{ 
 		$name = mysql_result($queryResult, $i, "person_name"); 
 		$desc = mysql_result($queryResult, $i, "person_desc"); 
-		$img = mysql_result($queryResult, $i, "person_img"); 
+		$img = mysql_result($queryResult, $i, "image_name");
 		$status = mysql_result($queryResult, $i, "status"); 
 		echo '<div>';
 		echo $name;
 		echo $status;
 		echo $desc;
-		echo $img;
+		echo "<img src=http://bubble.ipt.oamk.fi/NEST/images/$img>";
 		echo '</div>';
   	}
   ?>
