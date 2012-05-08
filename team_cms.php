@@ -92,9 +92,12 @@
 			or die(@mysql_error());
 			$del = mysql_query("SELECT image_name FROM team WHERE person_id = $ud_id")
 			
-			if(!unlink("/home/user/public_html/NEST/images/$del"){}
+			if(!unlink("/home/user/public_html/NEST/images/'$del'")
+			{
+				echo ("Error deleting $file");
+			}
 
-			if($data)
+			if($data && $del)
 			{
 				echo "<meta http-equiv=\"refresh\" content=\"0;URL=index.php?id=10\">";	
 			}
