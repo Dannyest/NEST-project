@@ -11,11 +11,11 @@
     { 
   		$header = mysql_result($queryResult, $i, "header"); 
 		$content = mysql_result($queryResult, $i, "content"); 
-		$img = mysql_result($queryResult, $i, "img"); 
+		$img = mysql_result($queryResult, $i, "image_name");
 		$author = mysql_result($queryResult, $i, "status"); 
     
     echo '<div>';
-    echo $img;
+    echo "<img src=http://bubble.ipt.oamk.fi/NEST/images/$img>";
     echo $author;
     echo $header;
     echo $content;
