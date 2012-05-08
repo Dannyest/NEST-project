@@ -85,23 +85,27 @@
 			<?php }
 
 
+		
 		if($action == "delete")
 		{
 
+			$del = @mysql_query("SELECT image_name FROM team WHERE person_id = $ud_id");
+
+			if(!unlink("/home/user/public_html/NEST/images/'$del'"))
+			{
+				echo ("Error deleting file");
+			}
 			$data = @mysql_query("DELETE FROM team WHERE person_id = $ud_id") 
 			or die(@mysql_error());
-			$del = mysql_query("SELECT image_name FROM team WHERE person_id = $ud_id")
-			
-			if(!unlink("/home/user/public_html/NEST/images/'$del'")
-			{
-				echo ("Error deleting $file");
-			}
+
 
 			if($data && $del)
 			{
 				echo "<meta http-equiv=\"refresh\" content=\"0;URL=index.php?id=10\">";	
+				
 			}
 		}?>
+   	
    
     
 		
