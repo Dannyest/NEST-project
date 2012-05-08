@@ -9,15 +9,15 @@
   
     for($i = 0; $i < $rowCount; $i++) 
     { 
-    $header = mysql_result($queryResult, $i, "header"); 
-		$content = mysql_result($queryResult, $i, "content"); 
-		$img = mysql_result($queryResult, $i, "img"); 
+   	$header = mysql_result($queryResult, $i, "header"); 
+	$content = mysql_result($queryResult, $i, "content"); 
+	$img = mysql_result($queryResult, $i, "image_name");
     
-    echo '<div>';
-    echo $img;
-    echo $header;
-    echo $content;
-    echo '</div>';
+  	  echo '<div>';
+  	  echo "<img src=http://bubble.ipt.oamk.fi/NEST/images/$img>";
+  	  echo $header;
+  	  echo $content;
+  	  echo '</div>';
   	}
     ?>
 </div>
