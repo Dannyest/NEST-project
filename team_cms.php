@@ -90,6 +90,9 @@
 
 			$data = @mysql_query("DELETE FROM team WHERE person_id = $ud_id") 
 			or die(@mysql_error());
+			$del = mysql_query("SELECT image_name FROM team WHERE person_id = $ud_id")
+			
+			if(!unlink("/home/user/public_html/NEST/images/$del"){}
 
 			if($data)
 			{
@@ -98,7 +101,7 @@
 		}?>
    
     
-
+		
 
 
 </div>
