@@ -4,7 +4,7 @@
   	$name = $_POST['person_name'];
 	$desc = $_POST['person_desc'];
 	$status = $_POST['status'];
-
+       $imgname = ($_FILES["file"]["name"]);
 	 if ((($_FILES["file"]["type"] == "image/gif")
 || ($_FILES["file"]["type"] == "image/jpeg")
 || ($_FILES["file"]["type"] == "image/png")
@@ -17,15 +17,15 @@
     }
   else
     {
-    if (file_exists("upload/" . $_FILES["file"]["name"]))
+    if (file_exists("/home/user/public_html/NEST/images/" . $_FILES["file"]["name"]))
       {
       echo $_FILES["file"]["name"] . " already exists. ";
       }
     else
       {
       move_uploaded_file($_FILES["file"]["tmp_name"],
-      "NEST/images" . $_FILES["file"]["name"]);
-	mysql_query("INSERT INTO team (image_name) VALUES ('".$FILES['file']['name']."')");
+      "/home/user/public_html/NEST/images/" . $_FILES["file"]["name"]);
+	mysql_query("INSERT INTO team (image_name, person_name, person_desc, status) VALUES ('$imgname', '$name', '$desc', '$status')");	
       }
     }
   }
